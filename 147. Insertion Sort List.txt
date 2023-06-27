@@ -1,0 +1,41 @@
+147. Insertion Sort List
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        ListNode* prev;
+        ListNode* cur;
+        prev=head;
+        cur=head->next;
+        ListNode* dummy=new ListNode(0);
+        dummy->next=head;
+        while(cur != NULL)
+        {
+            if(cur->val >= prev->val)
+            {
+                prev=cur;
+                cur=cur->next;
+                continue;
+            }
+            ListNode* temp=dummy;
+            while(cur->val > temp->next->val )
+            {
+                temp=temp->next;
+            }
+            prev->next=cur->next;
+            cur->next=temp->next;
+            temp->next=cur;
+            cur=prev->next;
+        }
+        return dummy->next;
+    }
+};
