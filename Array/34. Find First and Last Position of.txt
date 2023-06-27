@@ -1,0 +1,22 @@
+34. Find First and Last Position of Element in Sorted Array
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> ans;
+        int n=nums.size(),c=1,i,k;
+        if(find(nums.begin(),nums.end(),target)==nums.end())
+        return {-1,-1};
+        for(i=0;i<n;i++)
+        {
+            if(nums[i]==target)
+            {
+                if(c==1)
+                ans.push_back(i);
+                k=i;
+                c++;
+            }
+        } 
+        ans.push_back(k);
+        return ans;
+    }
+};
