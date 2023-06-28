@@ -1,0 +1,13 @@
+47. Permutations II
+from itertools import permutations
+class Solution(object):
+    def permuteUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        s=[]
+        p=list(permutations(nums))
+        for i in p:
+            s.append(i)
+        return list(set(s))

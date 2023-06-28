@@ -1,0 +1,13 @@
+46. Permutations
+from itertools import permutations
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        l=[]
+        p=list(permutations(nums))
+        for i in p:
+            l.append(list(i))
+        return l
