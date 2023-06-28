@@ -1,0 +1,23 @@
+56. Merge Intervals
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> m;;
+        sort(intervals.begin(),intervals.end());
+        for(int i=0;i<intervals.size();i++)
+        {
+            if(m.empty() || m.back()[1]<intervals[i][0])
+            {
+                vector<int> v;
+                v.push_back(intervals[i][0]);
+                v.push_back(intervals[i][1]);
+                m.push_back(v);
+            }
+            else
+            {
+                m.back()[1]=max(m.back()[1],intervals[i][1]);
+            }
+        }
+        return m;
+    }
+};

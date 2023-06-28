@@ -1,0 +1,10 @@
+88. Merge Sorted Array
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int> num3(nums2);
+        copy(nums1.begin(),nums1.begin()+m,back_inserter(num3));
+        sort(num3.begin(),num3.end());
+        nums1=num3;
+    }
+};
