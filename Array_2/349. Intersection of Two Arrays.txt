@@ -1,0 +1,16 @@
+349. Intersection of Two Arrays
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> n;
+        for(auto it:nums1)
+        {
+            if(count(nums2.begin(),nums2.end(),it)>0)
+            {
+                n.insert(it);
+            }
+        }
+        vector<int> nums3(n.begin(),n.end());
+        return nums3;
+    }
+};

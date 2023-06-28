@@ -1,0 +1,26 @@
+2215. Find the Difference of Two Arrays
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int> nums1, vector<int> nums2) {
+        vector<int> ans1;
+        vector<int> ans2;
+        vector<vector<int>> res;
+        for(auto i:nums1)
+        {
+            if(find(nums2.begin(),nums2.end(),i) == nums2.end() && find(ans1.begin(),ans1.end(),i) == ans1.end())
+            {
+                ans1.push_back(i);
+            }
+        }
+        for(auto i:nums2)
+        {
+            if(find(nums1.begin(),nums1.end(),i) == nums1.end() && find(ans2.begin(),ans2.end(),i) == ans2.end())
+            {
+                ans2.push_back(i);
+            }
+        }
+        res.push_back(ans1);
+        res.push_back(ans2);
+        return res;
+    }
+};

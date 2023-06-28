@@ -1,0 +1,15 @@
+169. Majority Element
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int max=(nums.size())/2;
+        unordered_set<int> s;
+        copy(nums.begin(),nums.end(),inserter(s,s.end()));
+        for(auto it=s.begin();it!=s.end();it++)
+        {
+            if(count(nums.begin(),nums.end(),*it)>max)
+            return *it;
+        }
+        return -1;
+    }
+};

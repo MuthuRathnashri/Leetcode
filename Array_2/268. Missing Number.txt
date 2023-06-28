@@ -1,0 +1,19 @@
+268. Missing Number
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+       /* for(int i=0;i<=nums.size();i++)
+        {
+            if(find(nums.begin(),nums.end(),i) == nums.end())
+            {
+                return i;
+            }
+        }
+        return -1;
+        */
+        int n=nums.size();
+        int s=accumulate(nums.begin(),nums.end(),0);
+        int x=(n*(n+1))/2-s;
+        return x;
+    }
+};
